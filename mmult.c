@@ -2,9 +2,9 @@
  * An unoptimized implementation of matrix multiplication.
  */
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #include "mat.h"
 
@@ -20,24 +20,25 @@
  * @param bCols : the number of columns in b.
  * @return 0 if the matrix multiplication is successful.
  */
-int mmult(double *c, 
-	      double *a, int aRows, int aCols, 
-	      double *b, int bRows, int bCols) {
+int mmult(double *c,
+          double *a, int aRows, int aCols,
+          double *b, int bRows, int bCols)
+{
+    for (size_t s = 0; s < aRows*bCols; s++)
+    {
+        c[s] = 0;
+    }
     #pragma simd
-    for(int i = 0; i < aRows; i++) {
-        for(int j = 0; j < bCols; j++) {
-            c[i * bCols + j] = 0;
-            for(int k = 0; k < aRows; k++) {
-                for (int l = 0; l < aRows; l++)
-                {
-                    c[i * bCols + l] += a[i * aRows + k] * b[k * bCols + l];
-                } 
+    for (int i = 0; i < aRows; ++i)
+    {
+        for (int k = 0; k < aRows; ++k)
+        {
+            for (int j = 0; j < bCols; ++j)
+            {
+                c[i * bCols + j] += a[i * aRows + k] * b[k * bCols + j];
             }
         }
     }
 
-  return 0;
+    return 0;
 }
-
-
-
