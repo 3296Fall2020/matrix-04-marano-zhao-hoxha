@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
         a = gen_matrix(i, i);
         b = gen_matrix(i, i);
         c = malloc(i * i * 8);
-        mmult_mmult_vectorized(c, a, i, i, b, i, i);
+        mmult_vectorized(c, a, i, i, b, i, i);
         end = clock();
         time_spend = ((double)(end - begin)) / CLOCKS_PER_SEC;
         printf("Time use for simd:%f\n", time_spend);
