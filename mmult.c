@@ -20,7 +20,22 @@
  * @param bCols : the number of columns in b.
  * @return 0 if the matrix multiplication is successful.
  */
-int mmult(double *c,
+int mmult(double *c, 
+	      double *a, int aRows, int aCols, 
+	      double *b, int bRows, int bCols) {
+
+    for(int i = 0; i < aRows; ++i) {
+        for(int j = 0; j < bCols; ++j) {
+            c[i * bCols + j] = 0;
+            for(int k = 0; k < aRows; ++k) {
+                c[i * bCols + j] += a[i * aRows + k] * b[k * bCols + j];
+            }
+        }
+    }
+
+  return 0;
+}
+int mmult_vectorized(double *c,
           double *a, int aRows, int aCols,
           double *b, int bRows, int bCols)
 {
