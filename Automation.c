@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
         mmult(c, a, i, i, b, i, i);
         end = clock();
         time_spend = ((double)(end - begin)) / CLOCKS_PER_SEC;
-        printf("Time use:%f\n", time_spend);
+        printf("%4d,%6d,%10f,", time_spend);
         //simd
         begin = clock();
         a = malloc(i * i * 8);
@@ -33,6 +33,6 @@ int main(int argc, char const *argv[])
         mmult_vectorized(c, a, i, i, b, i, i);
         end = clock();
         time_spend = ((double)(end - begin)) / CLOCKS_PER_SEC;
-        printf("Time use for simd:%f\n", time_spend);
+        printf("%10f\n", time_spend);
     }
 }
