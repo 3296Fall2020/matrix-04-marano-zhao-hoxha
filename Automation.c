@@ -21,7 +21,8 @@ int main(int argc, char const *argv[]){
         mmult(c,a,i,i,b,i,i);
         clock_t end =clock();
         double time_spend =((double) (end - begin)) / CLOCKS_PER_SEC; 
-        printf("Time use:%f",time_spend);
+        printf("Time use:%f\n",time_spend);
+        sleep(1);
     }
     
 }
