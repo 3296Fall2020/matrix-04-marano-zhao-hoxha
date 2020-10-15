@@ -10,7 +10,7 @@
 
 int main(int argc, char const *argv[]){
     
-    for (size_t i = 0; i < 1000; i+100)
+    for (size_t i = 100; i < 1000; i+=100)
     { 
         clock_t begin =clock();
         double *a = malloc(i*8);
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]){
         clock_t end =clock();
         double time_spend =((double) (end - begin)) / CLOCKS_PER_SEC; 
         printf("Time use:%f\n",time_spend);
-        sleep(1);
+        
     }
     
 }
