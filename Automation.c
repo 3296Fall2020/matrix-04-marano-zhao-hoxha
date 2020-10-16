@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
     double *a, *b, *c, time_spend;
     clock_t begin, end;
-    for (size_t i = 100; i < 1000; i += 100)
+    for (size_t i = 50; i < 1500; i += 50)
     {
         //nonoptimized
         begin = clock();
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
         mmult(c, a, i, i, b, i, i);
         end = clock();
         time_spend = ((double)(end - begin)) / CLOCKS_PER_SEC;
-        printf("%4ld,%6ld,%10f,",i/100,i, time_spend);
+        printf("%4ld,%6ld,%10f,",i/50,i, time_spend);
         //simd
         begin = clock();
         a = malloc(i * i * 8);
