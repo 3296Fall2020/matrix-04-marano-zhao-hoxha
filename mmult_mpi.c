@@ -106,9 +106,9 @@ int main(int argc, char *argv[])
         else
         {
             // Slave Code goes here
-            b = malloc(sizeof(double) * bcols * nrows);
+            b = malloc(sizeof(double) * ncols * nrows);
             //recive bcast.
-            MPI_Bcast(b, nrows * bcols, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+            MPI_Bcast(b, nrows * ncols, MPI_DOUBLE, 0, MPI_COMM_WORLD);
             //form omp_mpi.c
             if (myid <= nrows)
             {
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
                     }
                     rowNumber = status.MPI_TAG;
 
-                    for (int i = 0; i < bcols; i++)
+                    for (int i = 0; i < ncols; i++)
                     {
                         double sum = 0.0;
                         for (int j = 0; j < nrows; j++)
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
                         }
                         answer[i] = sum;
                     }
-                    MPI_Send(answer, bcols, MPI_DOUBLE, 0, rowNumber,MPI_COMM_WORLD);
+                    MPI_Send(answer, ncols, MPI_DOUBLE, 0, rowNumber,MPI_COMM_WORLD);
                 }
             }
         }
