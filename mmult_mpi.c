@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
             MPI_Bcast(bb, nrows * ncols, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
             //send a row by row
-            for (int i = 0; i < nrows; i++)
+            for (int i = 0; i < min(numprocs-1, nrows); i++)
             {
                 for (int j = 0; j < ncols; j++)
                 {
