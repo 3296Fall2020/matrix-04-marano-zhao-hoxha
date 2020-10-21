@@ -42,14 +42,14 @@ int main(int argc, char *argv[])
 
         FILE *ma = fopen(argv[1], "r");
         FILE *mb = fopen(argv[2], "r");
-        if ((matrix1 || matrix2) == NULL)
+        if ((ma || mb) == NULL)
         {
             fprintf(stderr, "two valid files in command line\n");
             exit(1);
         }
         int bcols, arows;
-        fscanf(matrix1, "%d %d", &arows, &ncols);
-        fscanf(matrix2, "%d %d", &nrows, &bcols);
+        fscanf(ma, "%d %d", &arows, &ncols);
+        fscanf(mb, "%d %d", &nrows, &bcols);
 
         if ((nrows != ncols))
         {
@@ -100,13 +100,13 @@ int main(int argc, char *argv[])
                     {
                         buffer[j] = aa[numbersent * ncols + j];
                     }
-                    MPI_Send(buffer, ncols, MPI_DOUBLE, sender, numsent + 1,
+                    MPI_Send(buffer, ncols, MPI_DOUBLE, send, numbersent + 1,
                              MPI_COMM_WORLD);
                     numbersent++;
                 }
                 else
                 {
-                    MPI_Send(MPI_BOTTOM, 0, MPI_DOUBLE, sender, 0, MPI_COMM_WORLD);
+                    MPI_Send(MPI_BOTTOM, 0, MPI_DOUBLE, send, 0, MPI_COMM_WORLD);
                 }
             }
 
@@ -142,13 +142,13 @@ int main(int argc, char *argv[])
                     for (int i = 0; i < bcols; i++)
                     {
                         double sum = 0.0;
-                        for (int j = 0; j < rowB; j++)
+                        for (int j = 0; j < nrows; j++)
                         {
-                            sum += a[j] * b[j * rowB + i];
+                            sum += a[j] * b[j * nrows + i];
                         }
                         answer[i] = sum;
                     }
-                    MPI_Send(answer, colB, MPI_DOUBLE, 0, rowNum,MPI_COMM_WORLD);
+                    MPI_Send(answer, bcols, MPI_DOUBLE, 0, rowNumber,MPI_COMM_WORLD);
                 }
             }
         }
