@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     clock_t begin, end;
     FILE *file;
     char instruction[100];
-    for (size_t i = 50; i < 1500; i += 50)
+    for (size_t i = 100; i < 1000; i += 100)
     {
         //nonoptimized
         begin = clock();
@@ -54,7 +54,7 @@ int main(int argc, char const *argv[])
         file = fopen("mpi_data.txt", "r");
         fscanf(file, "%lf", &time_spend);
         fclose(file);
-        printf("%10f\n",time_spend)
+        printf("%10f\n",time_spend);
 
     }
 }
