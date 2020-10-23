@@ -9,6 +9,8 @@
 -**Hoxha**
 
 ## Requirments
+<img src = "FinalGraph.png"/>
+
 ### Research Question:  what is SIMD, OMP, and MPI? What are the differences between them?
 
 
