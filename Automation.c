@@ -61,6 +61,7 @@ int main(int argc, char const *argv[])
         fprintf(data,"%10f\n", time_spend);
 
     }
+	fclose(data);
     sprintf(instruction, "gnuplot graph.gnu");
 	system(instruction);
 }
