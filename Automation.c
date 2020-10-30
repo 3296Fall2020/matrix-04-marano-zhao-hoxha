@@ -58,4 +58,5 @@ int main(int argc, char const *argv[])
         printf("%10f\n",time_spend);
 
     }
+	system("gnuplot graph.gnu");
 }
