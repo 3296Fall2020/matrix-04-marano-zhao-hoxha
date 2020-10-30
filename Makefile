@@ -34,6 +34,8 @@ mxv_omp_mpi:	mxv_omp_mpi.c mat.c
 
 test_mmult:	test_mmult.c mmult.c mat.c
 	gcc test_mmult.c mmult.c mat.c -lm -o test_mmult
+automation: automation.c
+	gcc -O3 Automation.c mat.c mmult.c mmult_omp.c -lm -o Auto
 
 clean:
 	rm -f *.o
