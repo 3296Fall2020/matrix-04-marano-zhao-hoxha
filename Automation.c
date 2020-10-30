@@ -10,7 +10,8 @@ int main(int argc, char const *argv[])
 {
     double *a, *b, *c, time_spend;
     clock_t begin, end;
-    FILE *file;
+    FILE *file=fopen("mpi_data.txt","w");
+    fclose(file);
     char instruction[100];
     for (size_t i = 100; i < 1000; i += 100)
     {
