@@ -2,11 +2,34 @@
 
 ## Team Members 
 
--**Marano**
+-**Marano**(testing ,helped with coding,helped with graphs)
 
--**Zhao**
+-**Zhao**(Wrote the code and algotrithms ,worked on producing graphs ,testing,wrote code for SIMD parallelization on java as well)
 
--**Hoxha**
+-**Hoxha**(Readme.md file ,helped with coding in a the first tasks,worked on producing graphs)
+
+## Project Board
+https://trello.com/b/lAjpyFbi/lab6
+
+
+## Testing
+The cycle was the same :
+
+-Write code
+
+-Compile code
+
+-Run code 
+
+-Test Code 
+
+What was different on this project was that we had to run the project on the wolfgang cluster instead of our own machines which made it a little more tedious ,but nevertheless
+after you get used to it the proccess is the same .
+On this project focus was in measuring the speed for 4 different types of parallelization so we were able to do that by simple adding time variable to measure how long
+each type took to do multiplication of a matrix with size n(where n was bigger than 100 and less than 1000).
+Also we wrote code to generate different sizes of matrices this wasy everything would be automated.
+
+
 
 ## Requirments
 <img src = "FinalGraph.png"/>
